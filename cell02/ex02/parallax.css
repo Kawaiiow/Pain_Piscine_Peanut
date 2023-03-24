@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+}
+
+.headimg{
+    background: url(https://media.discordapp.net/attachments/543413456955637762/1054102676213878804/1000.png?width=831&height=468) no-repeat center; 
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    position: relative;
+}
+
+h3{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.mid{
+    background: black no-repeat center;
+    background-size: cover;
+    height: 120vh;
+    position: relative;
+}
+
+.end{
+    background: url(https://media.discordapp.net/attachments/543413456955637762/1048706794916163744/image.png?width=831&height=467) no-repeat center; 
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    position: relative;
+}

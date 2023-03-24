@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<body>
+    <div class = "circle" id = "circle" onclick="add()" onmouseout="dec()"></div>
+</body>
+
+<style>
+    .circle{
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        background: red;
+    }
+</style>
+
+<script>
+    let width = 200
+    let height = 200
+    const colors = ['red', 'green', 'blue']
+    let clickcount = 0
+
+    const add = () => {
+        const circle = document.getElementById("circle")
+        clickcount += 1
+
+        if(width <= 420 && height <= 420){
+            width += 10
+            height += 10
+            circle.style.width = `${width}px`
+            circle.style.height = `${height}px`
+            circle.style.backgroundColor = colors[clickcount % 3]
+            return
+        }
+
+        width = 200;
+        height = 200;
+        circle.style.backgroundColor = colors[clickcount % 3]
+    }
+
+    const dec = () => {
+        const circle = document.getElementById("circle")
+        clickcount += 1
+        if(width >= 200 && height >= 200){
+            width -= 5
+            height -= 5
+            circle.style.width = `${width}px`
+            circle.style.height = `${height}px`
+            circle.style.backgroundColor = colors[clickcount % 3]
+        }
+    }
+</script>
+
+</html>
