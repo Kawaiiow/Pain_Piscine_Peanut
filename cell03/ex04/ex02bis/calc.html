@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<script>
+    const math_op = ['+', '-', '*', '/', '%']
+
+    $('document').ready(() => {
+        render_element();
+
+        $("button").click(() => {
+            const fnum = parseFloat($("#firstnum").val())
+            const snum = parseFloat($('#secondnum').val())
+            let operator = $('select').val()
+            let answer = 0;
+
+            if (fnum < 0 || snum < 0 || !Number.isInteger(fnum) || !Number.isInteger(snum)) {
+                console.log("Error :(")
+                alert("Error :(")
+            } else if (snum == 0 && (operator == "/" || operator == "%")) {
+                console.log("It’s over 9000!")
+                alert("It’s over 9000!")
+            } else {
+                switch (operator) {
+                    case "+":
+                        answer = fnum + snum
+                        break;
+                    case "-":
+                        answer = fnum - snum
+                        break;
+                    case "*":
+                        answer = fnum * snum
+                        break;
+                    case "/":
+                        answer = fnum / snum
+                        break;
+                    case "%":
+                        answer = fnum % snum
+                        break;
+                }
+                console.log(answer)
+                alert(answer)
+            }
+        })
+
+        setInterval(() => alert("Please, use me..."), 30 * 1000);
+    })
+
+    const render_element = () => {
+        jQuery('<input>', {
+            type: 'text',
+            id: 'firstnum',
+            name: 'first_number',
+            value: 0
+        }).appendTo('body')
+
+        jQuery('<select>', {
+            type: 'text',
+            id: 'operator'
+        }).appendTo('body')
+
+        math_op.forEach(ops => {
+            jQuery('<option>', {
+                text: ops
+            }).appendTo('#operator')
+        })
+
+        jQuery('<input>', {
+            type: 'text',
+            id: 'secondnum',
+            name: 'second_number',
+            value: 0
+        }).appendTo('body')
+
+        jQuery('<button>', {
+            text: 'Try me!'
+        }).appendTo('body')
+    }
+</script>
+
+</html>
