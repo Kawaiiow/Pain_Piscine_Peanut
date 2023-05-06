@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+<html>
 
 <body>
-    <div class = "circle" id = "circle" onclick="add()" onmouseout="dec()"></div>
+    <div  id = "circle" onclick="add()" onmouseout="dec()"></div>
 </body>
 
 <style>
-    .circle{
+    #circle{
         width: 200px;
         height: 200px;
         border-radius: 100%;
@@ -17,24 +18,28 @@
     let width = 200
     let height = 200
     const colors = ['red', 'green', 'blue']
-    let clickcount = 0
+
+    const chng_color = ()  => {
+        let c = colors.shift()
+        circle.style.backgroundColor = colors[0]
+        colors.push(c)
+    }
 
     const add = () => {
         const circle = document.getElementById("circle")
-        clickcount += 1
 
         if(width <= 420 && height <= 420){
             width += 10
             height += 10
             circle.style.width = `${width}px`
             circle.style.height = `${height}px`
-            circle.style.backgroundColor = colors[clickcount % 3]
+            chng_color();
             return
         }
 
         width = 200;
         height = 200;
-        circle.style.backgroundColor = colors[clickcount % 3]
+        chng_color();
     }
 
     const dec = () => {
@@ -45,9 +50,11 @@
             height -= 5
             circle.style.width = `${width}px`
             circle.style.height = `${height}px`
-            circle.style.backgroundColor = colors[clickcount % 3]
+            chng_color();
         }
     }
+
+    
 </script>
 
 </html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+  <form>
+    <input type="text" id="first_num" name="first_number" value="0">
+    <select id="operator" name="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </select>
+    <input type="text" id="second_num" name="second_number" value="0">
+    <button id="submit" onclick="calc_operation()">Try me!</button>
+  </form>
+</body>
+<style>
+
+</style>
+<script>
+  const calc_operation = () => {
+    const fnum = parseFloat(document.getElementById("first_num").value)
+    const snum = parseFloat(document.getElementById("second_num").value)
+    let operator = document.getElementById("operator").value
+    let answer = 0;
+
+    if (fnum < 0 || snum < 0) {
+      console.log("Error :(")
+      alert("Error :(")
+    } else if (operator === "/" || operator === "%" && snum == "0") {
+      console.log("It’s over 9000!")
+      alert("It’s over 9000!")
+    } else {
+      switch (operator) {
+        case "+":
+          answer = fnum + snum
+          break;
+        case "-":
+          answer = fnum - snum
+          break;
+        case "*":
+          answer = fnum * snum
+          break;
+        case "/":
+          answer = fnum / snum
+          break;
+        case "%":
+          answer = fnum % snum
+          break;
+      }
+      console.log(answer)
+      alert(answer)
+    }
+  }
+
+  setInterval(() => alert("Please, use me..."), 30000);
+
+</script>
+
+</html>
